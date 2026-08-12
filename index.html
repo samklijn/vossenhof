@@ -368,34 +368,35 @@ html,body{height:100%;overflow:hidden;background:#F5F2EC}
         <!-- Primair logo: Vossenhol op creme -->
         <div>
           <div class="tag" style="margin-bottom:16px">Primair &middot; Op licht</div>
-          <div style="background:var(--bg);border:1px solid var(--rule);padding:52px 36px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px">
-            <svg width="320" height="120" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
-              <!-- Schuur silhouet met rieten kap -->
-              <g transform="translate(108,8)">
+          <div style="background:var(--bg);border:1px solid var(--rule);padding:40px 36px 36px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:220px">
+            <svg width="280" height="140" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+              <!-- Schuur silhouet met rieten kap — icoon boven, tekst eronder -->
+              <g transform="translate(88,4)">
                 <!-- Rieten kap -->
                 <path d="M52,0 L0,44 L104,44 Z" fill="#3A4728"/>
-                <!-- Dakranden (rieten) -->
+                <!-- Dakranden (rieten detail) -->
                 <path d="M8,44 L0,44 M96,44 L104,44" stroke="#C4967A" stroke-width="2.5" stroke-linecap="round"/>
                 <!-- Muur -->
                 <rect x="8" y="44" width="88" height="60" fill="#3A4728"/>
-                <!-- Voordeur dubbel -->
-                <rect x="36" y="68" width="14" height="36" rx="7" fill="#F5F2EC"/>
-                <rect x="54" y="68" width="14" height="36" rx="7" fill="#F5F2EC"/>
-                <!-- Raam links -->
+                <!-- Voordeur (boogvorm) -->
+                <rect x="38" y="68" width="13" height="36" rx="6.5" fill="#F5F2EC"/>
+                <rect x="53" y="68" width="13" height="36" rx="6.5" fill="#F5F2EC"/>
+                <!-- Ramen -->
                 <rect x="13" y="54" width="17" height="13" rx="1" fill="#F5F2EC" opacity=".7"/>
-                <!-- Raam rechts -->
                 <rect x="74" y="54" width="17" height="13" rx="1" fill="#F5F2EC" opacity=".7"/>
                 <!-- Boom links -->
-                <rect x="-14" y="74" width="5" height="30" rx="2" fill="#4A5C35"/>
-                <ellipse cx="-12" cy="68" rx="11" ry="14" fill="#4A5C35"/>
+                <rect x="-14" y="76" width="5" height="28" rx="2" fill="#4A5C35"/>
+                <ellipse cx="-12" cy="70" rx="11" ry="13" fill="#4A5C35"/>
                 <!-- Boom rechts -->
-                <rect x="113" y="74" width="5" height="30" rx="2" fill="#4A5C35"/>
-                <ellipse cx="116" cy="68" rx="11" ry="14" fill="#4A5C35"/>
+                <rect x="113" y="76" width="5" height="28" rx="2" fill="#4A5C35"/>
+                <ellipse cx="116" cy="70" rx="11" ry="13" fill="#4A5C35"/>
               </g>
-              <!-- Tekst -->
-              <text x="160" y="106" text-anchor="middle"
+              <!-- Dunne scheidingslijn tussen icoon en tekst -->
+              <line x1="80" y1="116" x2="200" y2="116" stroke="#C4967A" stroke-width=".8" opacity=".5"/>
+              <!-- Tekst ONDER het icoon (ruim vrij van de gebouwbodem op y≈112) -->
+              <text x="140" y="133" text-anchor="middle"
                     font-family="Cormorant Garamond, Georgia, serif"
-                    font-size="19" font-weight="700" fill="#3A4728" letter-spacing="3">VOSSENHOL</text>
+                    font-size="16" font-weight="700" fill="#3A4728" letter-spacing="4">VOSSENHOL</text>
             </svg>
           </div>
           <p style="font-size:11px;color:var(--muted);margin-top:10px">Primaire versie voor gebruik op lichte achtergronden en stationery.</p>
@@ -404,24 +405,25 @@ html,body{height:100%;overflow:hidden;background:#F5F2EC}
         <!-- Inverse versie: wit op donkergroen -->
         <div>
           <div class="tag" style="margin-bottom:16px">Inverse &middot; Op donker</div>
-          <div style="background:var(--sv);padding:52px 36px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px">
-            <svg width="320" height="120" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
-              <g transform="translate(108,8)">
+          <div style="background:var(--sv);padding:40px 36px 36px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:220px">
+            <svg width="280" height="140" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+              <g transform="translate(88,4)">
                 <path d="M52,0 L0,44 L104,44 Z" fill="#F5F2EC"/>
                 <path d="M8,44 L0,44 M96,44 L104,44" stroke="#C4967A" stroke-width="2.5" stroke-linecap="round"/>
                 <rect x="8" y="44" width="88" height="60" fill="rgba(245,242,236,.9)"/>
-                <rect x="36" y="68" width="14" height="36" rx="7" fill="#3A4728"/>
-                <rect x="54" y="68" width="14" height="36" rx="7" fill="#3A4728"/>
-                <rect x="13" y="54" width="17" height="13" rx="1" fill="rgba(58,71,40,.5)"/>
-                <rect x="74" y="54" width="17" height="13" rx="1" fill="rgba(58,71,40,.5)"/>
-                <rect x="-14" y="74" width="5" height="30" rx="2" fill="#C4967A"/>
-                <ellipse cx="-12" cy="68" rx="11" ry="14" fill="#C4967A"/>
-                <rect x="113" y="74" width="5" height="30" rx="2" fill="#C4967A"/>
-                <ellipse cx="116" cy="68" rx="11" ry="14" fill="#C4967A"/>
+                <rect x="38" y="68" width="13" height="36" rx="6.5" fill="#3A4728"/>
+                <rect x="53" y="68" width="13" height="36" rx="6.5" fill="#3A4728"/>
+                <rect x="13" y="54" width="17" height="13" rx="1" fill="rgba(58,71,40,.4)"/>
+                <rect x="74" y="54" width="17" height="13" rx="1" fill="rgba(58,71,40,.4)"/>
+                <rect x="-14" y="76" width="5" height="28" rx="2" fill="#C4967A"/>
+                <ellipse cx="-12" cy="70" rx="11" ry="13" fill="#C4967A"/>
+                <rect x="113" y="76" width="5" height="28" rx="2" fill="#C4967A"/>
+                <ellipse cx="116" cy="70" rx="11" ry="13" fill="#C4967A"/>
               </g>
-              <text x="160" y="106" text-anchor="middle"
+              <line x1="80" y1="116" x2="200" y2="116" stroke="#C4967A" stroke-width=".8" opacity=".4"/>
+              <text x="140" y="133" text-anchor="middle"
                     font-family="Cormorant Garamond, Georgia, serif"
-                    font-size="19" font-weight="700" fill="#F5F2EC" letter-spacing="3">VOSSENHOL</text>
+                    font-size="16" font-weight="700" fill="#F5F2EC" letter-spacing="4">VOSSENHOL</text>
             </svg>
           </div>
           <p style="font-size:11px;color:var(--muted);margin-top:10px">Inverse versie voor gebruik op donkere achtergronden en print.</p>
