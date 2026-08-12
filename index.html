@@ -1,4 +1,4 @@
-<title>De Vossenhol — Visual Identity | Spring</title>
+﻿<title>De Vossenhol — Visual Identity | Spring</title>
 <style>
 :root{
   --sv:#3A4728;--sv2:#2C3820;
@@ -224,7 +224,7 @@ body{font-family:var(--sans);color:var(--ink);background:var(--lin);
   <span class="t-slidename" id="sname">Cover</span>
   <div class="t-arrows">
     <button class="t-arr" onclick="navigate(-1)" title="Vorige dia">←</button>
-    <span class="t-ctr" id="ctr">1 / 16</span>
+    <span class="t-ctr" id="ctr">1 / 15</span>
     <button class="t-arr" onclick="navigate(1)" title="Volgende dia">→</button>
   </div>
 </div>
@@ -928,48 +928,10 @@ body{font-family:var(--sans);color:var(--ink);background:var(--lin);
   </div>
 </div>
 
-<!-- SLIDE 14: STATUS & VALIDATIE -->
-<div class="slide" id="s14">
-  <div class="s-pad" style="padding-bottom:20px">
-    <span class="s-eye">status & validatie</span>
-    <h2 class="s-title">sterk project,<br>bewust in de markt.</h2>
-    <p class="s-sub">Eerste concept — gereed voor bespreking Habitat. De meeste onderdelen zijn groen; enkele aannames nog te bevestigen bij definitieve prijzen en technische details.</p>
-  </div>
-  <div style="padding:0 80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
-    <div>
-      <p style="font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ok);margin-bottom:12px">Validatiestatus</p>
-      <div class="st-row"><span class="st-ok">✅</span>Doelgroep-fit — sterk, helder profiel</div>
-      <div class="st-row"><span class="st-ok">✅</span>Product-fit — uitzonderlijk sterk, uniek in de Betuwe</div>
-      <div class="st-row"><span class="st-ok">✅</span>Locatie-fit — Betuwe-charme werkt voor doelgroep</div>
-      <div class="st-row"><span class="st-ok">✅</span>Concurrentie-fit — blauw oceaan, geen directe concurrentie</div>
-      <div class="st-row"><span class="st-ok">✅</span>Merkidentiteit — uitgewerkt in dit document</div>
-      <div class="st-row"><span class="st-ok">✅</span>Social proof — 3/7 verkocht, actief inzetten</div>
-      <div class="st-row"><span class="st-ok">✅</span>Marketing-fit — sterk visueel verhaal (riet, boomgaard)</div>
-      <div class="st-row"><span class="st-ok">✅</span>Sales-fit — duidelijk kernverhaal, sterk op bezichtiging</div>
-      <div class="st-row"><span class="st-warn">⚠️</span>Prijs-fit — definitieve prijzen nog te bevestigen</div>
-      <div class="st-row"><span class="st-warn">⚠️</span>Bewijs monument — foto's voor/na + status concreet maken</div>
-    </div>
-    <div>
-      <p style="font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ok);margin-bottom:12px">Openstaande punten</p>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div class="card" style="border-left:3px solid var(--ok)"><p class="c-body">Definitieve vraagprijzen en m² per unit (VH2, VH4, VH5, VH6)</p></div>
-        <div class="card" style="border-left:3px solid var(--ok)"><p class="c-body">Opleverdata per woning — VH2, VH4, VH5, VH6</p></div>
-        <div class="card" style="border-left:3px solid var(--ok)"><p class="c-body">Verhalen/profielen van al-verkochte kopers — krachtige social proof</p></div>
-        <div class="card" style="border-left:3px solid var(--muted)"><p class="c-body">Monumentenstatus: welke onderhoudsverplichtingen gelden er precies?</p></div>
-        <div class="card" style="border-left:3px solid var(--muted)"><p class="c-body">Seizoensfoto's boomgaard in bloesem (april) + oogst (september)</p></div>
-        <div class="card" style="border-left:3px solid var(--muted)"><p class="c-body">Restauratiedocumentatie voor/na beschikbaar voor brochure?</p></div>
-        <div class="card" style="border-left:3px solid var(--muted)"><p class="c-body">Energieprestatie VH5+6 (BENG-klasse) — aanname nu A++/A+++</p></div>
-      </div>
-    </div>
-  </div>
-  <div style="padding:0 80px 40px">
-    <div class="dark-band"><p>"Campagnestrategie: diepgericht op de karakterzoeker — geen massacampagne. 4 woningen vragen 4 kopers. Bereik de juiste 100–300 mensen, niet 100.000. Sterkste campagnemoment: boomgaard in bloei (april/mei)."</p></div>
-  </div>
-</div>
-
+<!-- SLIDE 14: PLATTEGROND (hernummerd na verwijderen status) -->
 
 <!-- SLIDE 15: PLATTEGROND -->
-<div class="slide" id="s15">
+<div class="slide" id="s14">
   <div class="s-pad" style="padding-bottom:20px">
     <span class="s-eye">situatietekening & plattegrond</span>
     <h2 class="s-title">de ligging van<br>het ensemble.</h2>
@@ -1010,8 +972,8 @@ body{font-family:var(--sans);color:var(--ink);background:var(--lin);
 </div>
 
 <script>
-var SLIDE_NAMES=["Cover","Ensemble","Units","Logo","Kleuren","Typografie","Doelgroep","Positionering","Kernwaarden","Copy & Storytelling","Social Media","USP’s & Sales","Richtlijnen","Locatie","Status","Plattegrond"];
-var cur=0,tot=16;
+var SLIDE_NAMES=["Cover","Ensemble","Units","Logo","Kleuren","Typografie","Doelgroep","Positionering","Kernwaarden","Copy & Storytelling","Social Media","USP’s & Sales","Richtlijnen","Locatie","Plattegrond"];
+var cur=0,tot=15;
 function goTo(n){
   if(n<0||n>=tot)return;
   document.getElementById('s'+cur).classList.remove('active');
