@@ -1,0 +1,971 @@
+<title>De Vossenhof — Visual Identity | Spring</title>
+<style>
+:root{
+  --sv:#3A4728;--sv2:#2C3820;
+  --ok:#C4967A;--mg:#4A5C35;--lin:#F5F2EC;--ve:#E4C5B0;
+  --hab:#E07830;
+  --ink:#1A1A18;--muted:#6A6860;
+  --bd:rgba(196,150,122,.18);--bd2:rgba(196,150,122,.1);
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--lin);
+  display:flex;flex-direction:column;height:100%;overflow:hidden;-webkit-font-smoothing:antialiased}
+
+/* TOP BAR */
+.topbar{height:44px;flex-shrink:0;background:var(--sv);display:flex;align-items:center;padding:0 20px;gap:12px;z-index:200}
+.t-logo{display:flex;flex-direction:column;line-height:1;gap:1px}
+.t-logo span:first-child{font-size:12px;font-weight:800;letter-spacing:.04em;color:#fff}
+.t-logo span:last-child{font-size:8px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.t-div{width:1px;height:18px;background:rgba(255,255,255,.12)}
+.t-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.t-slidename{font-size:11.5px;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.55);white-space:nowrap}
+.t-arrows{display:flex;gap:6px;margin-left:auto}
+.t-arr{width:28px;height:28px;border-radius:4px;border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);color:#fff;cursor:pointer;display:flex;align-items:center;
+  justify-content:center;font-size:13px;transition:background .15s}
+.t-arr:hover{background:rgba(255,255,255,.12)}
+.t-ctr{font-size:11px;color:rgba(255,255,255,.28);padding:0 8px;align-self:center}
+
+/* SHELL */
+.shell{flex:1;overflow:hidden;min-height:0}
+.main{width:100%;height:100%;overflow-y:auto;background:var(--lin)}
+.slide{display:none}
+.slide.active{display:block}
+.cover-wrap{min-height:calc(100vh - 44px);display:flex;flex-direction:column}
+
+/* ATOMS */
+.s-pad{padding:52px 80px}
+.s-eye{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ok);margin-bottom:8px;display:block}
+.s-title{font-family:var(--serif);font-size:clamp(26px,3.8vw,46px);font-weight:700;color:var(--sv);
+  line-height:.96;letter-spacing:-.025em;margin-bottom:10px}
+.s-sub{font-size:14px;color:var(--muted);line-height:1.68;margin-bottom:30px;max-width:600px}
+
+/* Accent bands */
+.ok-band{background:var(--ok);padding:18px 26px;border-radius:3px;margin:18px 0}
+.ok-band p{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.78;color:#fff}
+.dark-band{background:var(--sv);padding:18px 26px;border-radius:3px;margin:18px 0}
+.dark-band p{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.78;color:rgba(255,255,255,.65)}
+
+/* Grids */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+
+/* Cards */
+.card{background:#fff;border:1px solid var(--bd2);border-radius:4px;padding:20px}
+.card--dk{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:4px;padding:20px}
+.c-label{font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ok);margin-bottom:10px;display:block}
+.c-head{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:7px}
+.card--dk .c-head{color:#fff}
+.c-body{font-size:12.5px;line-height:1.72;color:var(--muted)}
+.card--dk .c-body{color:rgba(255,255,255,.55)}
+
+/* Kleurblokken */
+.sw-grid{display:flex !important;flex-wrap:nowrap !important;min-height:360px}
+.sw{display:flex !important;flex:1 !important;min-width:0 !important;flex-direction:column;justify-content:flex-end;padding:24px;position:relative;overflow:hidden}
+.sw-name{font-family:var(--serif);font-size:clamp(16px,2vw,22px);font-weight:700;line-height:1;margin-bottom:6px}
+.sw-hex{font-size:9.5px;font-family:monospace;font-weight:700;letter-spacing:.04em;opacity:.52}
+.sw-role{font-size:7.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:5px;opacity:.38}
+.sw-use{font-size:12px;line-height:1.62;margin-top:8px;opacity:.68}
+.sw--d .sw-name,.sw--d .sw-hex,.sw--d .sw-role,.sw--d .sw-use{color:#fff}
+.sw--l .sw-name,.sw--l .sw-hex,.sw--l .sw-role,.sw--l .sw-use{color:var(--ink)}
+
+/* Logo varianten */
+.lv-grid{display:flex;flex-wrap:nowrap;gap:0}
+.lv{flex:1;min-width:0;padding:36px 28px 22px;display:flex;flex-direction:column;gap:18px;border-right:1px solid var(--bd)}
+.lv:last-child{border-right:none}
+.lv-a{background:#fff}
+.lv-b{background:var(--sv)}
+.lv-c{background:#E8E2D8}
+.lv-label{font-size:8.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.3;
+  border-top:1px solid currentColor;padding-top:10px;margin-top:auto}
+
+/* Typografie */
+.ty-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd)}
+.ty{background:#fff;padding:40px;display:flex;flex-direction:column}
+.ty--d{background:var(--sv)}
+.ty-aa{font-size:clamp(80px,12vw,140px);font-weight:700;line-height:.85;letter-spacing:-.05em;margin-bottom:auto;color:var(--sv)}
+.ty-ser{font-family:var(--serif)}
+.ty-meta{padding-top:20px;border-top:1px solid var(--bd);margin-top:28px}
+.ty--d .ty-meta{border-top-color:rgba(255,255,255,.07)}
+.ty-role{font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ok);margin-bottom:4px;display:block}
+.ty--d .ty-role{color:rgba(140,106,63,.65)}
+.ty-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.ty--d .ty-name{color:#fff}
+.ty-desc{font-size:12px;color:var(--muted);line-height:1.65}
+.ty--d .ty-desc{color:rgba(255,255,255,.4)}
+.ty-sample{font-size:13px;line-height:1.75;color:var(--muted);padding-top:14px;border-top:1px solid var(--bd)}
+.ty--d .ty-sample{color:rgba(255,255,255,.4);border-top-color:rgba(255,255,255,.07)}
+
+/* Kernwaarden */
+.w5{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--bd)}
+.waarde{background:#fff;padding:24px 18px}
+.w-n{font-family:var(--serif);font-size:48px;font-weight:700;color:var(--ok);opacity:.15;line-height:1;margin-bottom:6px}
+.w-h{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px;letter-spacing:.03em}
+.w-txt{font-size:12px;color:var(--muted);line-height:1.68}
+
+/* Pijler (positionering dark) */
+.pijler{padding:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:3px}
+.pijler-n{font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(140,106,63,.65);margin-bottom:6px;display:block}
+.pijler-h{font-family:var(--serif);font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.1}
+.pijler-body{font-size:12px;line-height:1.68;color:rgba(255,255,255,.6);margin-bottom:8px}
+.pijler-bez{font-size:11px;color:rgba(255,255,255,.35);line-height:1.55}
+.pijler-bez em{color:rgba(255,255,255,.52);font-style:normal;font-weight:600}
+
+/* Doelgroep */
+.doelgroep{background:#fff;border:1px solid var(--bd2);border-radius:4px;padding:22px;margin-bottom:14px}
+.dg-badge{display:inline-flex;padding:3px 10px;border-radius:2px;font-size:8px;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;background:rgba(140,106,63,.1);color:var(--ok);
+  border:1px solid rgba(140,106,63,.2);margin-bottom:10px}
+.dg-head{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--sv);margin-bottom:4px}
+.dg-leeftijd{font-size:11px;color:var(--ok);font-weight:600;margin-bottom:10px;letter-spacing:.04em}
+.dg-body{font-size:12.5px;color:var(--muted);line-height:1.72;margin-bottom:10px}
+.dg-bezwaar{background:var(--lin);border:1px solid var(--bd2);border-radius:3px;padding:10px 14px;display:flex;gap:10px;align-items:flex-start}
+.bez-lbl{font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ok);flex-shrink:0;padding-top:1px}
+
+/* Copy blocks */
+.cp-block{background:#fff;border:1px solid var(--bd2);border-radius:4px;padding:22px}
+.cp-label{font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ok);margin-bottom:12px;display:block;padding-bottom:9px;border-bottom:1px solid var(--bd2)}
+.cp-head{font-family:var(--serif);font-size:clamp(16px,2.2vw,22px);font-weight:700;color:var(--sv);margin-bottom:6px;line-height:1.1}
+.cp-sub{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted);margin-bottom:8px;line-height:1.6}
+.cp-body{font-size:12.5px;line-height:1.78;color:var(--muted)}
+.cp-note{font-size:11px;color:var(--muted);margin-top:12px;padding-top:10px;border-top:1px solid var(--bd2)}
+.cp-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd2);font-size:12.5px;color:var(--ink);align-items:flex-start}
+.cp-item:last-child{border-bottom:none}
+.ci-lbl{font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ok);flex-shrink:0;padding-top:2px;min-width:52px}
+.ci-txt{font-size:12.5px;color:var(--ink);line-height:1.58}
+.ci-txt em{font-style:italic;color:var(--muted)}
+
+/* Social posts */
+.post-grid{display:flex !important;flex-wrap:nowrap !important;gap:14px;margin-bottom:14px}
+.post{flex:1;min-width:0;aspect-ratio:1;border-radius:4px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end}
+.post-body{position:relative;z-index:2;padding:16px}
+.post-title{font-family:var(--serif);font-size:clamp(15px,2.2vw,22px);font-weight:700;line-height:1.1;margin-bottom:6px}
+.post-copy{font-size:10px;line-height:1.55;opacity:.68;margin-bottom:5px}
+.post-tags{font-size:9px;opacity:.35;letter-spacing:.04em}
+.post-mark{position:absolute;top:14px;left:14px;z-index:3}
+
+/* Do/Don't */
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.dd-head{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding-bottom:11px;border-bottom:2px solid;margin-bottom:14px}
+.dd-do{color:var(--mg);border-color:var(--mg)}
+.dd-dont{color:#BE4F4F;border-color:#BE4F4F}
+.dd-item{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--bd2);font-size:12.5px;line-height:1.55;color:var(--ink);align-items:flex-start}
+.dd-item:last-child{border-bottom:none}
+.ico-y{color:var(--mg);font-weight:900;font-size:10px;flex-shrink:0;margin-top:2px}
+.ico-n{color:#BE4F4F;font-weight:900;font-size:10px;flex-shrink:0;margin-top:2px}
+
+/* USP */
+.usp-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--bd2);align-items:flex-start}
+.usp-item:last-child{border-bottom:none}
+.usp-n{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--ok);opacity:.22;flex-shrink:0;line-height:1;min-width:32px}
+.usp-head{font-size:13px;font-weight:700;color:var(--sv);margin-bottom:3px}
+.usp-body{font-size:12px;color:var(--muted);line-height:1.62}
+.bz-row{display:flex;gap:14px;margin-bottom:10px;background:#fff;border:1px solid var(--bd2);border-radius:3px;padding:14px;align-items:flex-start}
+.bz-q{font-size:12px;font-weight:700;color:var(--sv);flex:1;line-height:1.5}
+.bz-a{font-size:12px;color:var(--muted);flex:2;line-height:1.58}
+.bz-div{width:1px;background:var(--bd);flex-shrink:0;min-height:36px}
+
+/* COVER */
+.cover-top{flex:1;background:var(--sv);display:flex;flex-direction:column;justify-content:flex-end;
+  padding:52px 80px 36px;position:relative;overflow:hidden}
+.cover-title{font-family:var(--serif);font-size:clamp(56px,9vw,120px);font-weight:700;color:#fff;
+  line-height:.84;letter-spacing:-.04em;margin-bottom:22px;position:relative;z-index:2}
+.cover-sub{font-family:var(--serif);font-style:italic;font-size:16px;color:rgba(255,255,255,.4);position:relative;z-index:2;margin-bottom:16px}
+.cover-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;position:relative;z-index:2}
+.cover-chip{height:26px;padding:0 12px;border:1px solid rgba(255,255,255,.12);border-radius:2px;
+  display:flex;align-items:center;gap:7px;font-size:9px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(255,255,255,.45)}
+.cdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.cover-bot{background:var(--ok);padding:28px 80px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.cv-stat{text-align:center}
+.cv-n{font-family:var(--serif);font-size:32px;font-weight:700;color:#fff;line-height:1}
+.cv-l{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-top:2px}
+.cv-div{width:1px;height:38px;background:rgba(255,255,255,.2)}
+
+/* Unit cards */
+.unit-card{background:#fff;border:1px solid var(--bd2);border-radius:4px;padding:24px}
+.unit-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:2px;
+  font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px;align-self:flex-start}
+.badge-m{background:rgba(140,106,63,.1);color:var(--ok);border:1px solid rgba(140,106,63,.2)}
+.badge-n{background:rgba(92,107,58,.1);color:var(--mg);border:1px solid rgba(92,107,58,.2)}
+.badge-s{background:rgba(30,28,26,.06);color:var(--sv);border:1px solid rgba(30,28,26,.12)}
+.unit-name{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--sv);margin-bottom:4px}
+.unit-price{font-size:18px;font-weight:700;color:var(--ok);margin-bottom:10px;font-family:var(--serif)}
+.unit-body{font-size:12px;color:var(--muted);line-height:1.65}
+
+/* Sfeerwoorden */
+.sfeer-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.sfeer{padding:6px 14px;background:rgba(140,106,63,.08);border:1px solid rgba(140,106,63,.14);
+  border-radius:2px;font-size:12px;font-weight:600;letter-spacing:.03em;color:var(--sv)}
+
+/* Status tabel */
+.st-row{display:flex;align-items:center;gap:9px;padding:9px 14px;background:#fff;
+  border:1px solid var(--bd2);border-radius:3px;font-size:13px;color:var(--ink);margin-bottom:7px}
+.st-ok{color:#4A7C3F;font-size:16px}
+.st-warn{color:var(--ok);font-size:16px}
+
+@media(max-width:900px){
+  .s-pad{padding:32px 40px}
+  .g2,.g3,.ty-grid,.dd,.w5{grid-template-columns:1fr}
+  .g4{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="t-logo"><span>Spring</span><span>Real Estate</span></div>
+  <div class="t-div"></div>
+  <span class="t-title">Visual Identity</span>
+  <div class="t-div"></div>
+  <span class="t-slidename" id="sname">Cover</span>
+  <div class="t-arrows">
+    <button class="t-arr" onclick="navigate(-1)" title="Vorige dia">←</button>
+    <span class="t-ctr" id="ctr">1 / 15</span>
+    <button class="t-arr" onclick="navigate(1)" title="Volgende dia">→</button>
+  </div>
+</div>
+
+<div class="shell">
+<main class="main" id="main">
+
+<!-- SLIDE 0: COVER -->
+<div class="slide active" id="s0">
+  <div class="cover-wrap">
+    <div class="cover-top">
+      <!-- Boomgaard silhouet SVG -->
+      <svg style="position:absolute;bottom:0;left:0;width:100%;opacity:.08;z-index:1" viewBox="0 0 1400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+        <!-- Schuur silhouet links -->
+        <rect x="30" y="140" width="120" height="130" fill="#fff"/>
+        <polygon points="30,140 90,80 150,140" fill="#fff"/>
+        <!-- Rieten dak curve -->
+        <path d="M25,145 Q90,75 155,145" stroke="#C4A882" stroke-width="6" fill="none"/>
+        <!-- Bomen rechts -->
+        <ellipse cx="280" cy="160" rx="40" ry="55" fill="#fff"/>
+        <rect x="273" y="215" width="14" height="55" fill="#fff"/>
+        <ellipse cx="360" cy="180" rx="30" ry="42" fill="#fff"/>
+        <rect x="354" y="222" width="12" height="48" fill="#fff"/>
+        <ellipse cx="430" cy="150" rx="45" ry="60" fill="#fff"/>
+        <rect x="423" y="210" width="14" height="60" fill="#fff"/>
+        <ellipse cx="520" cy="170" rx="35" ry="50" fill="#fff"/>
+        <rect x="514" y="220" width="12" height="50" fill="#fff"/>
+        <!-- Meer bomen -->
+        <ellipse cx="620" cy="155" rx="42" ry="58" fill="#fff"/>
+        <rect x="613" y="213" width="14" height="57" fill="#fff"/>
+        <ellipse cx="700" cy="175" rx="28" ry="38" fill="#fff"/>
+        <rect x="695" y="213" width="10" height="57" fill="#fff"/>
+        <ellipse cx="780" cy="148" rx="50" ry="65" fill="#fff"/>
+        <rect x="773" y="213" width="14" height="57" fill="#fff"/>
+        <!-- Horizonlijn -->
+        <rect x="0" y="270" width="1400" height="30" fill="#fff" opacity=".3"/>
+      </svg>
+      <h1 class="cover-title">Monu<br>men<br>taal.</h1>
+      <div class="cover-chips">
+        <div class="cover-chip"><span class="cdot" style="background:#3A4728;border:1px solid rgba(255,255,255,.3)"></span>Donkergroen #3A4728</div>
+        <div class="cover-chip"><span class="cdot" style="background:#C4967A"></span>Salmon/rose #C4967A</div>
+        <div class="cover-chip"><span class="cdot" style="background:#4A5C35"></span>Mos-groen #4A5C35</div>
+        <div class="cover-chip"><span class="cdot" style="background:#FFFFFF;border:1px solid rgba(255,255,255,.25)"></span>Wit/crème #F5F2EC</div>
+      </div>
+      <p class="cover-sub">"monumentaal wonen in de Vossenhof" — Bemmel · Betuwe · Ensemble wonen doe je met elkaar</p>
+    </div>
+    <div class="cover-bot" style="background:var(--sv)">
+      <div class="cv-stat"><div class="cv-n">7</div><div class="cv-l">Woningen totaal</div></div>
+      <div class="cv-div"></div>
+      <div class="cv-stat"><div class="cv-n">3</div><div class="cv-l">Al verkocht</div></div>
+      <div class="cv-div"></div>
+      <div class="cv-stat"><div class="cv-n">4</div><div class="cv-l">Beschikbaar</div></div>
+      <div class="cv-div"></div>
+      <div class="cv-stat"><div class="cv-n">⭐ Parel</div><div class="cv-l">Funda-Parel onderscheiding</div></div>
+      <div class="cv-div"></div>
+      <div class="cv-stat"><div class="cv-n">20 min</div><div class="cv-l">Arnhem &amp; Nijmegen</div></div>
+      <div style="margin-left:auto;font-size:12px;color:rgba(255,255,255,.28);max-width:220px;line-height:1.65">Visual Identity Framework · <span style="color:#E07830;font-weight:700">habitat © 2026</span> × Spring Real Estate · Vertrouwelijk</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 1: ENSEMBLE & CONCEPT -->
+<div class="slide" id="s1">
+  <div class="s-pad" style="padding-bottom:20px">
+    <span class="s-eye">concept & ensemble</span>
+    <h2 class="s-title">de wereld van<br>De Vossenhof.</h2>
+    <p class="s-sub">Een uniek ensemble van 7 woningen op een historisch boerderijterrein in de Betuwe: gerestaureerde monumenten gecombineerd met ecologische nieuwbouw in houtskeletbouw, midden in een fruitboomgaard.</p>
+  </div>
+  <div class="dark-band" style="margin:0 80px 24px"><p>"Ergens in de Betuwe staat een plek die al een verhaal heeft. De Vossenhof in Bemmel is een ensemble van zeven woningen rondom een gerestaureerde monumentale boerderij en schuur — met een verse rieten kap, omgeven door een fruitboomgaard."</p></div>
+  <div class="g3" style="padding:0 80px 24px">
+    <div class="card">
+      <span class="c-label">Merkessentie</span>
+      <p class="c-body">Erfgoed zonder de lasten. Gemeenschap zonder de compromissen. Natuur zonder de afgelegen afstand.</p>
+    </div>
+    <div class="card">
+      <span class="c-label">Ensemble-concept</span>
+      <p class="c-body">7 woningen rondom één historisch erf. Elk met eigen oprit, tuin en privacy — je deelt de setting, niet de muren. Buren die dezelfde bewuste keuze maakten.</p>
+    </div>
+    <div class="card">
+      <span class="c-label">Blauw oceaan</span>
+      <p class="c-body">Geen vergelijkbaar product in de Betuwe. Gerestaureerde monumenten + ensemble + ecologisch + sleutelklaar. Directe concurrentie: nihil.</p>
+    </div>
+  </div>
+  <div style="padding:0 80px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bd)">
+    <div style="background:#fff;padding:20px;text-align:center">
+      <div style="font-family:var(--serif);font-size:32px;font-weight:700;color:var(--ok)">VH1+2</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">Boerderij — <span style="color:#4A7C3F;font-weight:700">✓ Verkocht</span></div>
+    </div>
+    <div style="background:#fff;padding:20px;text-align:center">
+      <div style="font-family:var(--serif);font-size:32px;font-weight:700;color:var(--ok)">VH3+4</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">Schuur met riet — <span style="color:var(--ok);font-weight:700">2 beschikbaar</span></div>
+    </div>
+    <div style="background:#fff;padding:20px;text-align:center">
+      <div style="font-family:var(--serif);font-size:32px;font-weight:700;color:var(--ok)">VH5+6</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">Nieuwbouw houtskelet — <span style="color:var(--ok);font-weight:700">2 beschikbaar</span></div>
+    </div>
+    <div style="background:#fff;padding:20px;text-align:center">
+      <div style="font-family:var(--serif);font-size:32px;font-weight:700;color:var(--ok)">VH7</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">Bungalow — <span style="color:#4A7C3F;font-weight:700">✓ Verkocht</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2: BESCHIKBARE UNITS -->
+<div class="slide" id="s2">
+  <div class="s-pad" style="padding-bottom:24px">
+    <span class="s-eye">beschikbare woningen</span>
+    <h2 class="s-title">vier woningen.<br>elk met een eigen verhaal.</h2>
+    <p class="s-sub">VH2, VH4, VH5 en VH6 — monument én nieuwbouw, elk met eigen karakter en privacy. Drie al verkocht: bewijs dat de formule werkt.</p>
+  </div>
+  <div style="padding:0 80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div class="unit-card" style="border-left:4px solid var(--ok)">
+      <div class="unit-badge badge-m">Monument · Boerderij</div>
+      <div class="unit-name">VH2 — Deel boerderij</div>
+      <div class="unit-price">€ 600.000 – € 850.000 <span style="font-size:12px;font-weight:400;color:var(--muted)">aanname</span></div>
+      <p class="unit-body">Onderdeel van de monumentale boerderij op Vossenhol 16. Ecologisch gerestaureerd, historisch karakter bewaard. Eigen oprit, tuin en ingang. Rieten kap — gerestaureerd met nieuwe materialen. <br><br><strong>Bijzonderheid:</strong> VH1 is al verkocht aan bewuste koper — uw directe buur is gelijkgestemd.</p>
+    </div>
+    <div class="unit-card" style="border-left:4px solid var(--ok)">
+      <div class="unit-badge badge-m">Monument · Schuur</div>
+      <div class="unit-name">VH4 — Deel schuur</div>
+      <div class="unit-price">€ 600.000 – € 750.000 <span style="font-size:12px;font-weight:400;color:var(--muted)">aanname</span></div>
+      <p class="unit-body">Onderdeel van de historische schuur met markante rieten kap. Het silhouet dat De Vossenhof zijn karakter geeft. Volledig gerestaureerd, sleutelklaar. Eigen tuin grenzend aan de fruitboomgaard. <br><br><strong>Bijzonderheid:</strong> VH3 (de andere helft) is nog beschikbaar — ideaal voor families die naast elkaar willen wonen.</p>
+    </div>
+    <div class="unit-card" style="border-left:4px solid var(--mg)">
+      <div class="unit-badge badge-n">Ecologische nieuwbouw</div>
+      <div class="unit-name">VH5 — Houtskeletbouw</div>
+      <div class="unit-price">€ 500.000 – € 650.000 <span style="font-size:12px;font-weight:400;color:var(--muted)">aanname</span></div>
+      <p class="unit-body">Ecologische nieuwbouw in houtskeletbouw, in dezelfde boomgaard-setting als de monumenten. Gezond binnenklimaat, lage energielasten, toekomstbestendig. Voor wie het ensemble wil — zonder de monumentenstatus.<br><br><strong>Combinatie mogelijk:</strong> VH5 en VH6 bieden ieder een complete, zelfstandige woning.</p>
+    </div>
+    <div class="unit-card" style="border-left:4px solid var(--mg)">
+      <div class="unit-badge badge-n">Ecologische nieuwbouw</div>
+      <div class="unit-name">VH6 — Houtskeletbouw</div>
+      <div class="unit-price">€ 500.000 – € 650.000 <span style="font-size:12px;font-weight:400;color:var(--muted)">aanname</span></div>
+      <p class="unit-body">Zelfde kwaliteit als VH5 — eigen oprit en tuin, eigen identiteit binnen het ensemble. Ecologische houtskeletbouw, Habitat-kwaliteitsvisie. Fruitboomgaard als gedeelde groene omgeving.<br><br><strong>Social proof:</strong> VH7 (bungalow) is al verkocht — je buren zijn al bewuste kopers.</p>
+    </div>
+  </div>
+  <div style="padding:0 80px 40px">
+    <div class="ok-band"><p>"3 van 7 woningen zijn al verkocht — niet omdat er een campagne was, maar omdat de mensen die het zagen meteen wisten."</p></div>
+  </div>
+</div>
+
+<!-- SLIDE 3: LOGO -->
+<div class="slide" id="s3">
+  <div class="s-pad" style="padding-bottom:20px">
+    <span class="s-eye">logo & merk</span>
+    <h2 class="s-title">De Vossenhof —<br>in beeld.</h2>
+    <p class="s-sub">Gestileerde schuur met rieten kap als icoon, gecombineerd met "DE VOSSENHOF" in small caps. Warm, tijdloos, Betuws — werkt in zwart-wit én op kraft papier.</p>
+  </div>
+  <div class="lv-grid">
+    <div class="lv lv-a">
+      <!-- Logo op lichte achtergrond: SVG schuur + tekst -->
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 0">
+        <svg viewBox="0 0 200 140" width="200" height="140" xmlns="http://www.w3.org/2000/svg">
+          <!-- Schuur body -->
+          <rect x="30" y="70" width="140" height="65" fill="#3A4728" rx="2"/>
+          <!-- Rieten dak silhouet -->
+          <path d="M15,75 Q100,15 185,75" fill="#8C6A3F" stroke="#8C6A3F" stroke-width="2"/>
+          <!-- Raam links -->
+          <rect x="48" y="88" width="28" height="30" fill="#F0EBE0" rx="1"/>
+          <!-- Deur midden -->
+          <rect x="86" y="95" width="28" height="40" fill="#F0EBE0" rx="1"/>
+          <!-- Raam rechts -->
+          <rect x="124" y="88" width="28" height="30" fill="#F0EBE0" rx="1"/>
+          <!-- Boomgaard boom links -->
+          <ellipse cx="10" cy="75" rx="10" ry="15" fill="#5C6B3A" opacity=".6"/>
+          <rect x="7" y="90" width="6" height="15" fill="#5C6B3A" opacity=".4"/>
+          <!-- Boomgaard boom rechts -->
+          <ellipse cx="190" cy="75" rx="10" ry="15" fill="#5C6B3A" opacity=".6"/>
+          <rect x="187" y="90" width="6" height="15" fill="#5C6B3A" opacity=".4"/>
+        </svg>
+        <div style="font-family:var(--serif);font-size:15px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sv);margin-top:12px">DE VOSSENHOF</div>
+        <div style="font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--ok);margin-top:3px">Bemmel · Betuwe</div>
+      </div>
+      <div class="lv-label" style="color:var(--sv)">Primair — lichte achtergrond</div>
+    </div>
+    <div class="lv lv-b">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 0">
+        <svg viewBox="0 0 200 140" width="200" height="140" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="70" width="140" height="65" fill="#3A4728" rx="2"/>
+          <path d="M15,75 Q100,15 185,75" fill="#C4A882" stroke="#C4A882" stroke-width="2"/>
+          <rect x="48" y="88" width="28" height="30" fill="#1E1C1A" rx="1"/>
+          <rect x="86" y="95" width="28" height="40" fill="#1E1C1A" rx="1"/>
+          <rect x="124" y="88" width="28" height="30" fill="#1E1C1A" rx="1"/>
+          <ellipse cx="10" cy="75" rx="10" ry="15" fill="#5C6B3A" opacity=".7"/>
+          <rect x="7" y="90" width="6" height="15" fill="#5C6B3A" opacity=".5"/>
+          <ellipse cx="190" cy="75" rx="10" ry="15" fill="#5C6B3A" opacity=".7"/>
+          <rect x="187" y="90" width="6" height="15" fill="#5C6B3A" opacity=".5"/>
+        </svg>
+        <div style="font-family:var(--serif);font-size:15px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-top:12px">DE VOSSENHOF</div>
+        <div style="font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(196,168,130,.7);margin-top:3px">Bemmel · Betuwe</div>
+      </div>
+      <div class="lv-label" style="color:#fff">Invers — donkere achtergrond</div>
+    </div>
+    <div class="lv lv-c">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 0">
+        <svg viewBox="0 0 200 140" width="200" height="140" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="70" width="140" height="65" fill="#1E1C1A" rx="2" opacity=".8"/>
+          <path d="M15,75 Q100,15 185,75" fill="#1E1C1A" stroke="#1E1C1A" stroke-width="2" opacity=".5"/>
+          <rect x="48" y="88" width="28" height="30" fill="#E8E2D8" rx="1"/>
+          <rect x="86" y="95" width="28" height="40" fill="#E8E2D8" rx="1"/>
+          <rect x="124" y="88" width="28" height="30" fill="#E8E2D8" rx="1"/>
+          <ellipse cx="10" cy="75" rx="10" ry="15" fill="#1E1C1A" opacity=".4"/>
+          <rect x="7" y="90" width="6" height="15" fill="#1E1C1A" opacity=".3"/>
+          <ellipse cx="190" cy="75" rx="10" ry="15" fill="#1E1C1A" opacity=".4"/>
+          <rect x="187" y="90" width="6" height="15" fill="#1E1C1A" opacity=".3"/>
+        </svg>
+        <div style="font-family:var(--serif);font-size:15px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sv);margin-top:12px">DE VOSSENHOF</div>
+        <div style="font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(30,28,26,.4);margin-top:3px">Bemmel · Betuwe</div>
+      </div>
+      <div class="lv-label" style="color:var(--sv)">Monochroom — stempel / zwart-wit</div>
+    </div>
+  </div>
+  <div class="s-pad" style="padding-top:20px">
+    <p style="font-size:12.5px;color:var(--muted);line-height:1.72;max-width:680px">Het logo plaatst altijd met voldoende vrije ruimte rondom het schuursilhouet. Op bouwborden uitsluitend de <strong style="color:var(--sv)">inversvariant op Schuurzwart</strong>. Het okerbruin van het rieten dak is een constante — nooit vervangen door groen. Nooit vervormen of vrijstaand toepassen zonder de tekstnaam "DE VOSSENHOF".</p>
+  </div>
+</div>
+
+<!-- SLIDE 4: KLEUREN -->
+<div class="slide" id="s4">
+  <div class="s-pad" style="padding-bottom:20px">
+    <span class="s-eye">kleurenpalet</span>
+    <h2 class="s-title">vier kleuren,<br>één Betuwse sfeer.</h2>
+  </div>
+  <div class="sw-grid">
+    <div class="sw sw--d" style="background:#3A4728">
+      <div class="sw-name">Donkergroen</div>
+      <div class="sw-hex">#3A4728</div>
+      <div class="sw-role">Primair — natuur</div>
+      <div class="sw-use">Logo, headers, bouwbord. Donker boomgroen — het kleur van een volwassen boomkroon in de Betuwe.</div>
+    </div>
+    <div class="sw sw--d" style="background:#C4967A">
+      <div class="sw-name">Salmon/Rose</div>
+      <div class="sw-hex">#C4967A</div>
+      <div class="sw-role">Accent — ensemble</div>
+      <div class="sw-use">Pull-quote achtergronden, "ENSEMBLE WONEN"-tekst. Warm, uitnodigend — de menselijke toon van het merk.</div>
+    </div>
+    <div class="sw sw--d" style="background:#4A5C35">
+      <div class="sw-name">Mos-groen</div>
+      <div class="sw-hex">#4A5C35</div>
+      <div class="sw-role">Ondersteunend — groen</div>
+      <div class="sw-use">Groene ondersteuning, boomgaard-referentie. Bevestigt de ensemble-natuur verbinding.</div>
+    </div>
+    <div class="sw sw--l" style="background:#F5F2EC;border-right:1px solid rgba(196,150,122,.1)">
+      <div class="sw-name">Wit/crème</div>
+      <div class="sw-hex">#F5F2EC / #FFF</div>
+      <div class="sw-role">Fond — licht</div>
+      <div class="sw-use">Helder wit voor brochure en website. Crème #F5F2EC voor print-achtergronden. Laat de donkergroene elementen ademen.</div>
+    </div>
+  </div>
+  <div class="s-pad" style="padding-top:20px">
+    <span class="s-eye">sfeerwoorden</span>
+    <div class="sfeer-row">
+      <span class="sfeer">Erfgoed</span>
+      <span class="sfeer">Aards</span>
+      <span class="sfeer">Seizoensgebonden</span>
+      <span class="sfeer">Authentiek</span>
+      <span class="sfeer">Warm-tijdloos</span>
+      <span class="sfeer">Bloesem &amp; oogst</span>
+      <span class="sfeer">Betuws landgoed</span>
+      <span class="sfeer">Historisch-modern</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: TYPOGRAFIE -->
+<div class="slide" id="s5">
+  <div class="s-pad" style="padding-bottom:20px">
+    <span class="s-eye">typografie</span>
+    <h2 class="s-title">als een oud familieboek.</h2>
+    <p class="s-sub">Warm, tijdloos, niet trendy. Klassieke serif voor titels, leesbaar humanist voor body — alsof je iets leest dat er al eeuwen is.</p>
+  </div>
+  <div class="ty-grid">
+    <div class="ty">
+      <div class="ty-aa ty-ser" style="color:var(--sv)">Aa</div>
+      <div class="ty-meta">
+        <span class="ty-role">Display / Titels</span>
+        <div class="ty-name">Georgia — Klassieke Serif</div>
+        <p class="ty-desc">Gedistingeerd maar toegankelijk. Dezelfde toonzetting als een goed ingericht boekenhuisje: warm, vol karakter. Voor alle koppen, citaten en display-tekst.</p>
+        <div class="ty-sample ty-ser">"In april bloeit de boomgaard. In september hangt het fruit zwaar aan de takken. De rest van het jaar is het gewoon jouw thuis."</div>
+      </div>
+    </div>
+    <div class="ty ty--d">
+      <div class="ty-aa" style="color:rgba(255,255,255,.15);font-family:var(--sans)">Aa</div>
+      <div class="ty-meta">
+        <span class="ty-role" style="color:rgba(140,106,63,.65)">Body / Interface</span>
+        <div class="ty-name" style="color:#fff">System UI — Humanist Sans</div>
+        <p class="ty-desc" style="color:rgba(255,255,255,.45)">Leesbaar, neutraal, verdwijnt in de tekst. Voor broodtekst, bijschriften, labels, interface-elementen. Nooit dominant — altijd ondersteunend.</p>
+        <div style="font-size:13px;line-height:1.75;color:rgba(255,255,255,.38);padding-top:14px;border-top:1px solid rgba(255,255,255,.07)">Locatie: Vossenhol 16, Bemmel · Gemeente Lingewaard · Funda-Parel</div>
+      </div>
+    </div>
+  </div>
+  <div class="s-pad" style="padding-top:20px">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+      <div><span style="font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ok);display:block;margin-bottom:6px">Titelniveau</span>
+        <p class="ty-ser" style="font-size:28px;font-weight:700;color:var(--sv);line-height:1.1">Monumentaal wonen in de Vossenhof.</p></div>
+      <div><span style="font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ok);display:block;margin-bottom:6px">Subtitel</span>
+        <p class="ty-ser" style="font-size:16px;color:var(--muted);line-height:1.5;font-style:italic">"Een gerestaureerd monument in een fruitboomgaard — vier woningen beschikbaar."</p></div>
+      <div><span style="font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ok);display:block;margin-bottom:6px">Broodtekst</span>
+        <p style="font-size:13px;color:var(--muted);line-height:1.72">Ergens in de Betuwe staat een plek die al een verhaal heeft. Drie woningen zijn al verkocht aan kopers die wisten wat ze zochten. Er zijn nog vier. Elk met eigen oprit, tuin en privacy.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6: DOELGROEP -->
+<div class="slide" id="s6">
+  <div class="s-pad" style="padding-bottom:20px">
+    <span class="s-eye">doelgroepen</span>
+    <h2 class="s-title">voor wie dit<br>gemaakt is.</h2>
+    <p class="s-sub">Drie bewuste kopersprofielen — elk met een eigen ingang tot het project. De Karakterzoeker is primair: iemand die niet een woning zoekt, maar een plek.</p>
+  </div>
+  <div style="padding:0 80px 16px">
+    <div class="doelgroep">
+      <div class="dg-badge">Primair</div>
+      <div class="dg-head">"De Karakterzoeker"</div>
+      <div class="dg-leeftijd">Koppel, 42–60 jaar · Financiële ruimte · Bewuste levensstijlkeuze</div>
+      <p class="dg-body">Zoekt niet een woning, maar een plek. Houdt van authentieke materialen, historisch erfgoed, bijzonder wonen. Werkt deels remote, heeft affiniteit met buitenleven, cultuur en ambacht. Heeft financiële ruimte en kiest bewust voor kwaliteit boven kwantiteit. Heeft eerder een boerderij of monumentale woning overwogen maar de restauratierisico's als drempel ervaren. <em>De Vossenhof lost precies die drempel op: monument klaar, geen zorgen meer.</em></p>
+      <div class="dg-bezwaar"><span class="bez-lbl">Bezwaar</span><span style="font-size:11.5px;color:var(--muted)">"Monument = extra kosten en restricties" → De restauratie is voltooid. U trekt in — niet in een project. Toekomstig onderhoud is vergelijkbaar met elke woning van deze leeftijd, en monumentensubsidie kan van toepassing zijn.</span></div>
+    </div>
+  </div>
+  <div style="padding:0 80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div class="doelgroep" style="margin-bottom:0">
+      <div class="dg-badge" style="background:rgba(92,107,58,.1);color:var(--mg);border:1px solid rgba(92,107,58,.2)">Secundair</div>
+      <div class="dg-head">"De Ensemble-familie"</div>
+      <div class="dg-leeftijd">Multigenerationeel of twee koppels, 40–65 jaar</div>
+      <p class="dg-body">Willen naast elkaar wonen, elk in hun eigen woning. VH1+2 (boerderij) of VH3+4 (schuur) biedt twee woningen op hetzelfde historische gebouw. Ideaal voor ouders + volwassen kinderen of twee koppels die "samen maar vrij" willen wonen.</p>
+      <div class="dg-bezwaar"><span class="bez-lbl">Bezwaar</span><span style="font-size:11.5px;color:var(--muted)">"Wie worden mijn buren?" → Dezelfde mensen die al gekozen hebben voor dit. De drie al-verkochte kopers zijn gelijkgestemde, bewuste mensen — dat is geen toeval, dat is het ensemble-concept.</span></div>
+    </div>
+    <div class="doelgroep" style="margin-bottom:0">
+      <div class="dg-badge" style="background:rgba(30,28,26,.06);color:var(--sv);border:1px solid rgba(30,28,26,.12)">Tertiair</div>
+      <div class="dg-head">"De Ruraal-Professionele"</div>
+      <div class="dg-leeftijd">Freelancer / ondernemer / creatieve professional, 35–55 jaar</div>
+      <p class="dg-body">Zoekt ruimte voor werk, atelier, stille werkomgeving. De boomgaard en het ensemble als inspirerende woon-en-werkplek. Remote working vanuit Bemmel — Arnhem en Nijmegen beide op ±20 minuten.</p>
+      <div class="dg-bezwaar"><span class="bez-lbl">Bezwaar</span><span style="font-size:11.5px;color:var(--muted)">"Is Bemmel niet te ver?" → Arnhem op 20 minuten, Nijmegen ook. Wat u inlevert is files; wat u krijgt is de Betuwe.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: POSITIONERING -->
+<div class="slide" id="s7">
+  <div style="background:var(--sv);padding:52px 80px">
+    <span class="s-eye" style="color:rgba(140,106,63,.65)">positionering</span>
+    <h2 class="s-title" style="color:#fff;margin-bottom:6px">"Monumentaal wonen in de Vossenhof.</h2>
+    <p style="font-size:clamp(14px,1.8vw,19px);color:rgba(255,255,255,.32);margin-bottom:28px;font-family:var(--serif);font-style:italic">Ensemble wonen doe je met elkaar. — Bemmel, Betuwe.</p>
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:3px;padding:20px;margin-bottom:28px">
+      <span style="font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(140,106,63,.65);margin-bottom:10px;display:block">Publieke tagline</span>
+      <p style="font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.8;color:rgba(255,255,255,.7)">"Monumentaal wonen in de Vossenhof." — De Vossenhof, Bemmel.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div class="pijler">
+        <span class="pijler-n">Pijler 1</span>
+        <div class="pijler-h">Monumentaal karakter, modern comfort</div>
+        <p class="pijler-body">Volledig gerestaureerd historisch monument — zonder de restauratie-zorgen. Nieuwe rieten kap, ecologische restauratie, sleutelklaar. Monumentensubsidie kan van toepassing zijn op toekomstig onderhoud.</p>
+        <p class="pijler-bez"><em>Bezwaar "Monument = extra kosten":</em> De restauratie is voltooid. U trekt in, niet in een project.</p>
+      </div>
+      <div class="pijler">
+        <span class="pijler-n">Pijler 2</span>
+        <div class="pijler-h">Ensemble-wonen: jouw plek, jouw buren</div>
+        <p class="pijler-body">Je kiest niet alleen de woning — je kiest je omgeving. 7 woningen, 3 al verkocht door bewuste kopers. Eigen oprit, tuin en privacy per woning — je deelt de setting, niet de muren.</p>
+        <p class="pijler-bez"><em>Bezwaar "Te dicht op anderen":</em> Eigen oprit, tuin, ingang. Je deelt de setting, niet de muren.</p>
+      </div>
+      <div class="pijler">
+        <span class="pijler-n">Pijler 3</span>
+        <div class="pijler-h">De boomgaard als levende tuin</div>
+        <p class="pijler-body">Je woont midden in een fruitboomgaard die met de seizoenen meebeweegt. Bloesem in april, fruit in september — geen tuincentrum-tuin maar een echte, levende omgeving. De boomgaard is ensemble-onderdeel.</p>
+        <p class="pijler-bez"><em>Bezwaar "Praktisch?":</em> Geen extra onderhoudslast voor jou — onderdeel van de ensemblesfeer.</p>
+      </div>
+      <div class="pijler">
+        <span class="pijler-n">Pijler 4</span>
+        <div class="pijler-h">Duurzame toekomst in historische vorm</div>
+        <p class="pijler-body">Oud van buiten, toekomstbestendig van binnen. Houtskeletbouw voor VH5+6. Ecologische restauratie voor VH1-4. Bouwen voor de toekomst begint met respect voor het verleden.</p>
+        <p class="pijler-bez"><em>Bezwaar "Oud = slecht geïsoleerd":</em> Restauratie volledig gericht op energieprestatie en gezond binnenklimaat.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: KERNWAARDEN -->
+<div class="slide" id="s8">
+  <div class="s-pad" style="padding-bottom:16px">
+    <span class="s-eye">kernwaarden</span>
+    <h2 class="s-title">wat dit merk drijft.</h2>
+  </div>
+  <div class="w5">
+    <div class="waarde">
+      <div class="w-n">1</div><div class="w-h">Erfgoed</div>
+      <p class="w-txt">We bewaren wat de moeite waard is. De restauratie is geen sentimentele keuze — het is de overtuiging dat bouwen voor de toekomst begint met respect voor het verleden.</p>
+    </div>
+    <div class="waarde">
+      <div class="w-n">2</div><div class="w-h">Gemeenschap</div>
+      <p class="w-txt">De Vossenhof is geen appartementencomplex. Het is een ensemble van mensen die dezelfde bewuste keuze maakten. Die gelijkgezindheid is een waarde op zichzelf.</p>
+    </div>
+    <div class="waarde">
+      <div class="w-n">3</div><div class="w-h">Eerlijkheid</div>
+      <p class="w-txt">Monument-wonen heeft restricties. Wij communiceren wat het is — inclusief wat je niet weet of nog niet klopt. Dat vertrouwen is de basis van het koopproces.</p>
+    </div>
+    <div class="waarde">
+      <div class="w-n">4</div><div class="w-h">Levend</div>
+      <p class="w-txt">De boomgaard, de seizoenen, het riet dat patineert — De Vossenhof is geen gefossiliseerd monument. Het is een plek die ademt, groeit en verandert. Samen met de mensen die er wonen.</p>
+    </div>
+    <div class="waarde">
+      <div class="w-n">5</div><div class="w-h">Schaars</div>
+      <p class="w-txt">Er is maar één De Vossenhof. Dat is geen marketingtruc — het is een feit. Schaarsheid is een waarde wanneer het echt is. 4 woningen beschikbaar. Niet meer.</p>
+    </div>
+  </div>
+  <div class="s-pad" style="padding-top:20px">
+    <div class="dark-band"><p>"trots zonder arrogantie. historisch maar niet nostalgisch. warm, geduldig, overtuigd. eigenheid boven massa."</p></div>
+  </div>
+</div>
+
+<!-- SLIDE 9: COPY & STORYTELLING -->
+<div class="slide" id="s9">
+  <div class="s-pad" style="padding-bottom:20px">
+    <span class="s-eye">copy & storytelling</span>
+    <h2 class="s-title">het verhaal van<br>bloesem en oogst.</h2>
+    <p class="s-sub">Verhalend · seizoensgebonden · poëtisch — het project verkoopt zichzelf als je het goed vertelt. Verhaallijn: omgeving → woning → toekomst.</p>
+  </div>
+  <div style="padding:0 80px 16px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div class="cp-block">
+      <span class="cp-label">Website — Hero</span>
+      <div class="cp-head">Monumentaal wonen in de Vossenhof.</div>
+      <p class="cp-sub">Een gerestaureerd monument. Een fruitboomgaard. Vier woningen beschikbaar.</p>
+      <p class="cp-body">De Vossenhof, Bemmel — vlakbij Arnhem en Nijmegen.</p>
+      <p class="cp-note">CTA: "Vertel me meer →" — drempel laag, contact persoonlijk, niet massaal.</p>
+    </div>
+    <div class="cp-block">
+      <span class="cp-label">Brochure — Opening</span>
+      <div class="cp-head">In april bloeit de boomgaard.</div>
+      <p class="cp-body" style="margin-top:8px">In september hangt het fruit zwaar aan de takken. De rest van het jaar is het gewoon jouw thuis.<br><br>Ergens in de Betuwe staat een plek die al een verhaal heeft. De Vossenhof in Bemmel is een ensemble rondom een gerestaureerde monumentale boerderij — met een verse rieten kap, omgeven door een fruitboomgaard. Drie woningen zijn al verkocht aan kopers die wisten wat ze zochten. Er zijn nog vier.</p>
+    </div>
+  </div>
+  <div style="padding:0 80px 24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+    <div class="cp-block">
+      <span class="cp-label">Social — Awareness</span>
+      <p class="cp-body" style="font-style:italic;margin-bottom:8px">"Er is een plek in de Betuwe waar een rieten kap het silhouet tekent tegen de avondlucht. Waar in april de boomgaard bloeit en in september het fruit rijpt."</p>
+      <p class="cp-note">De Vossenhof, Bemmel. 4 woningen. 3 al verkocht.</p>
+    </div>
+    <div class="cp-block">
+      <span class="cp-label">Social — Social proof</span>
+      <p class="cp-body" style="font-style:italic;margin-bottom:8px">"3 van 7 woningen zijn verkocht. Niet omdat er een campagne was — maar omdat de mensen die het zagen, meteen wisten."</p>
+      <p class="cp-note">De Vossenhof — Funda-Parel 🏅</p>
+    </div>
+    <div class="cp-block">
+      <span class="cp-label">Makelaarspitch — 30 sec</span>
+      <p class="cp-body">"Ik heb iets wat er maar één van bestaat. Een gerestaureerde boerderij met rieten kap, midden in een boomgaard in Bemmel. Sleutelklaar. Vier woningen, drie al verkocht door bewuste kopers. Als dit iets is voor jou — je moet dit even komen zien."</p>
+    </div>
+  </div>
+  <div style="padding:0 80px 40px">
+    <div class="ok-band"><p>"Ergens bestaat er een plek die al jaren in je hoofd zit. Rustiger. Groener. Meer van jou. De Vossenhof is die plek."</p></div>
+  </div>
+</div>
+
+<!-- SLIDE 10: SOCIAL MEDIA -->
+<div class="slide" id="s10">
+  <div style="background:#2C3820;padding:52px 80px 28px">
+    <span class="s-eye" style="color:rgba(140,106,63,.55)">social media</span>
+    <h2 class="s-title" style="color:#fff;margin-bottom:8px">drie seizoenen.<br>één ensemble.</h2>
+    <p style="font-size:13px;color:rgba(255,255,255,.3);margin-bottom:28px">Erfgoed · Boomgaard · Gemeenschap — voor Instagram en LinkedIn.</p>
+    <div class="post-grid">
+      <!-- Post 1: Erfgoed / Monument -->
+      <div class="post">
+        <div style="position:absolute;inset:0;z-index:0;background:linear-gradient(155deg,#2C3820 0%,#3A4728 100%)"></div>
+        <!-- Schuur SVG silhouet -->
+        <svg style="position:absolute;bottom:0;left:0;width:100%;z-index:1;opacity:.18" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+          <rect x="60" y="100" width="280" height="100" fill="#fff"/>
+          <path d="M40,108 Q200,30 360,108" fill="#C4A882"/>
+        </svg>
+        <div class="post-mark">
+          <div style="font-family:var(--serif);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)">De Vossenhof</div>
+        </div>
+        <div class="post-body">
+          <h3 class="post-title" style="color:#fff">Monument.<br>Klaar om in<br>te trekken.</h3>
+          <p class="post-copy" style="color:rgba(255,255,255,.65)">Gerestaureerde boerderij · Rieten kap · Bemmel · Betuwe</p>
+          <p class="post-tags" style="color:rgba(255,255,255,.32)">#DeVossenhof #Monument #Betuwe #Bemmel</p>
+        </div>
+      </div>
+      <!-- Post 2: Boomgaard / Seizoen -->
+      <div class="post">
+        <div style="position:absolute;inset:0;z-index:0;background:linear-gradient(170deg,#2D3A1A 0%,#4A5E28 45%,#8C6A3F 100%)"></div>
+        <svg style="position:absolute;bottom:0;left:0;width:100%;z-index:1;opacity:.25" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="80" cy="110" rx="45" ry="60" fill="#5C6B3A"/>
+          <rect x="73" y="170" width="14" height="30" fill="#5C6B3A"/>
+          <ellipse cx="180" cy="90" rx="55" ry="75" fill="#5C6B3A"/>
+          <rect x="173" y="165" width="14" height="35" fill="#5C6B3A"/>
+          <ellipse cx="300" cy="100" rx="48" ry="65" fill="#5C6B3A"/>
+          <rect x="293" y="165" width="14" height="35" fill="#5C6B3A"/>
+          <ellipse cx="380" cy="120" rx="35" ry="50" fill="#5C6B3A"/>
+        </svg>
+        <div class="post-mark">
+          <div style="font-family:var(--serif);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)">De Vossenhof</div>
+        </div>
+        <div class="post-body">
+          <h3 class="post-title" style="color:#fff">Bloesem.<br>Boomgaard.<br>Thuis.</h3>
+          <p class="post-copy" style="color:rgba(255,255,255,.65)">In april bloeit de boomgaard. In september rijpt het fruit.</p>
+          <p class="post-tags" style="color:rgba(255,255,255,.32)">#Boomgaard #Seizoen #VrijWonen #Erfgoed</p>
+        </div>
+      </div>
+      <!-- Post 3: Social proof / Ensemble -->
+      <div class="post">
+        <div style="position:absolute;inset:0;z-index:0;background:linear-gradient(145deg,#F5F2EC 0%,#E8E0D5 60%,#C4967A 100%)"></div>
+        <div class="post-mark">
+          <div style="font-family:var(--serif);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(30,28,26,.35)">De Vossenhof</div>
+        </div>
+        <div class="post-body">
+          <h3 class="post-title" style="color:#1E1C1A;font-size:clamp(15px,2.2vw,20px)">3 van 7<br>verkocht.<br>4 over.</h3>
+          <p class="post-copy" style="color:rgba(30,28,26,.62)">Funda-Parel · Ensemble in boomgaard · Bemmel</p>
+          <p class="post-tags" style="color:rgba(30,28,26,.3)">#FundaParel #EnsembleWonen #Betuwe</p>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px">
+      <p style="font-size:11px;color:rgba(255,255,255,.32);line-height:1.55"><strong style="color:rgba(255,255,255,.48);display:block;margin-bottom:3px">Post 1 — Erfgoed</strong>Donker fond + schuursilhouet. Voor eerste zichtbaarheid en awareness. Caption: "Monument in de Betuwe — klaar om in te trekken."</p>
+      <p style="font-size:11px;color:rgba(255,255,255,.32);line-height:1.55"><strong style="color:rgba(255,255,255,.48);display:block;margin-bottom:3px">Post 2 — Boomgaard</strong>Seizoensgebonden. Sterkste campagnemoment: boomgaard in bloei (april). Caption: "In april bloeit de boomgaard. De rest van het jaar is het jouw tuin."</p>
+      <p style="font-size:11px;color:rgba(255,255,255,.32);line-height:1.55"><strong style="color:rgba(255,255,255,.48);display:block;margin-bottom:3px">Post 3 — Social proof</strong>Linnen fond, warm. Social proof = sterkste overtuigingsmiddel. Caption: "3 van 7 verkocht. Niet door campagne — maar omdat de mensen die het zagen, meteen wisten."</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 11: USP's & SALES -->
+<div class="slide" id="s11">
+  <div class="s-pad" style="padding-bottom:20px">
+    <span class="s-eye">usps & sales</span>
+    <h2 class="s-title">zeven redenen<br>om te kiezen.</h2>
+  </div>
+  <div style="padding:0 80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div>
+      <div class="usp-item">
+        <div class="usp-n">1</div>
+        <div><div class="usp-head">Uniek in de regio — blauw oceaan</div>
+          <p class="usp-body">Geen enkel vergelijkbaar project in de Betuwe. Monument + ensemble + ecologisch + sleutelklaar bestaat nergens anders. Bezwaar "te duur": uniek = schaars = houdbare waarde.</p></div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-n">2</div>
+        <div><div class="usp-head">Volledig gerestaureerd monument</div>
+          <p class="usp-body">Geen restauratierisico, geen onverwachte kosten. Nieuwe rieten kap, ecologisch gerestaureerd, sleutelklaar. Je trekt in, niet in een project.</p></div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-n">3</div>
+        <div><div class="usp-head">Boomgaard als levende tuin</div>
+          <p class="usp-body">Je woont midden in een fruitboomgaard die met de seizoenen meebeweegt. Bloesem in april, fruit in september. Geen extra onderhoudslast.</p></div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-n">4</div>
+        <div><div class="usp-head">3 van 7 al verkocht</div>
+          <p class="usp-body">Aantoonbare vraag. Je koopt mee in een bewust gekozen gemeenschap. Bezwaar "wie zijn mijn buren?" → Gelijkgestemde, bewuste kopers.</p></div>
+      </div>
+    </div>
+    <div>
+      <div class="usp-item">
+        <div class="usp-n">5</div>
+        <div><div class="usp-head">Ensemble-privacy</div>
+          <p class="usp-body">Samen wonen zonder in te leveren op eigenheid. Eigen oprit, tuin en ingang. Je deelt de setting, niet de muren. Plattegrond ensemble beschikbaar.</p></div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-n">6</div>
+        <div><div class="usp-head">Funda-Parel onderscheiding</div>
+          <p class="usp-body">Officieel erkend als bijzonder woningaanbod — geen marketingclaim maar een onafhankelijke onderscheiding. Verhoogde zichtbaarheid en geloofwaardigheid.</p></div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-n">7</div>
+        <div><div class="usp-head">Habitat-kwaliteit</div>
+          <p class="usp-body">Dezelfde principiële ontwikkelaar als JONKERSHOF. Kleine schaal, grote zorg. Persoonlijk contact — geen project-BV, geen anonimiteit.</p></div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:0 80px 40px">
+    <div class="ok-band"><p>"Dit is de enige plek in de Betuwe waar je in een gerestaureerde monumentale boerderij woont, klaar om in te trekken, met een rieten kap en een boomgaard voor de deur."</p></div>
+  </div>
+</div>
+
+<!-- SLIDE 12: RICHTLIJNEN -->
+<div class="slide" id="s12">
+  <div class="s-pad" style="padding-bottom:20px">
+    <span class="s-eye">tone of voice & richtlijnen</span>
+    <h2 class="s-title">gedistingeerd maar<br>toegankelijk.</h2>
+    <p class="s-sub">Als een goed ingericht boekenhuisje: warm, vol karakter, niet voor iedereen — maar als het jouw smaak is, voel je je er meteen thuis.</p>
+  </div>
+  <div style="padding:0 80px 24px">
+    <div class="dd">
+      <div>
+        <div class="dd-head dd-do">✓ Doen</div>
+        <div class="dd-item"><span class="ico-y">✓</span>Schrijf vanuit het verhaal van de plek — de boomgaard, het riet, de seizoenen</div>
+        <div class="dd-item"><span class="ico-y">✓</span>Gebruik zintuiglijke taal: geur van riet, geluid van wind door bomen, fruit plukken</div>
+        <div class="dd-item"><span class="ico-y">✓</span>Benoem de gemeenschap als kwaliteit: "met buren die ook voor dit gekozen hebben"</div>
+        <div class="dd-item"><span class="ico-y">✓</span>Wees trots zonder te pochen — laat feiten spreken (3/7 verkocht, Funda-Parel)</div>
+        <div class="dd-item"><span class="ico-y">✓</span>Gebruik de structuur: verleden → heden → toekomst</div>
+        <div class="dd-item"><span class="ico-y">✓</span>Schrijf in de tweede persoon enkelvoud ("je") — vertrouwelijk maar niet familiair</div>
+      </div>
+      <div>
+        <div class="dd-head dd-dont">✗ Niet doen</div>
+        <div class="dd-item"><span class="ico-n">✗</span>Geen "unieke kans!" of urgentietaal — het verkoopt zichzelf of niet</div>
+        <div class="dd-item"><span class="ico-n">✗</span>Geen technisch restauratiejargon in publieke communicatie</div>
+        <div class="dd-item"><span class="ico-n">✗</span>Geen vergelijking met standaard nieuwbouw — dat verlaagt het niveau</div>
+        <div class="dd-item"><span class="ico-n">✗</span>Geen "uniek, bijzonder, exclusief, luxe" zonder concrete onderbouwing</div>
+        <div class="dd-item"><span class="ico-n">✗</span>Geen stock-foto's of renders als hoofdvisuaal</div>
+        <div class="dd-item"><span class="ico-n">✗</span>Geen stadsappartement-esthetiek — geen witte minimalistische lay-out</div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:0 80px 40px">
+    <p style="font-size:11px;font-weight:700;color:var(--ok);margin-bottom:8px;letter-spacing:.1em;text-transform:uppercase">Toonverschil per kanaal</p>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px">
+      <div class="card" style="text-align:center"><span class="c-label">Website</span><p class="c-body" style="font-size:11px">Verhalend, seizoensgebonden, poëtisch</p></div>
+      <div class="card" style="text-align:center"><span class="c-label">Brochure</span><p class="c-body" style="font-size:11px">Warm, historisch, overtuigend</p></div>
+      <div class="card" style="text-align:center"><span class="c-label">Social</span><p class="c-body" style="font-size:11px">Beeldgedreven, herkenbaar, intrigerend</p></div>
+      <div class="card" style="text-align:center"><span class="c-label">Sales</span><p class="c-body" style="font-size:11px">Persoonlijk, nieuwsgierig naar de koper</p></div>
+      <div class="card" style="text-align:center"><span class="c-label">E-mail</span><p class="c-body" style="font-size:11px">Selectief, als een persoonlijke tip</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 13: LOCATIE -->
+<div class="slide" id="s13">
+  <div style="background:var(--sv);padding:52px 80px 28px">
+    <span class="s-eye" style="color:rgba(140,106,63,.6)">locatie & omgeving</span>
+    <h2 class="s-title" style="color:#fff">bemmel.<br>betuwe op zijn best.</h2>
+    <p style="font-size:13px;color:rgba(255,255,255,.38);max-width:560px">Vossenhol 16, gemeente Lingewaard — een historisch boerderijterrein in de Betuwe, omringd door fruitboomgaarden. Arnhem én Nijmegen op circa 20 minuten.</p>
+  </div>
+  <!-- Foto's rij -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;height:260px">
+    <div style="position:relative;overflow:hidden;background:linear-gradient(135deg,#2D3A1A 0%,#4A5E28 100%)">
+      <img src="data:image/jpeg;base64,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" alt="De Vossenhof boomgaard" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center">
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 100%)">
+        <p style="font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6)">Fruitboomgaard</p>
+        <p style="font-size:13px;font-weight:700;color:#fff">Seizoensgebonden leven</p>
+      </div>
+    </div>
+    <div style="position:relative;overflow:hidden;background:linear-gradient(135deg,#1E1C1A 0%,#3D2F1A 100%)">
+      <img src="data:image/jpeg;base64,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" alt="De Vossenhof ensemble" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center">
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 100%)">
+        <p style="font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6)">Historisch ensemble</p>
+        <p style="font-size:13px;font-weight:700;color:#fff">Monument met rieten kap</p>
+      </div>
+    </div>
+  </div>
+  <!-- Twee werelden -->
+  <div style="padding:32px 80px 48px;background:var(--lin);display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--ok);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <span style="font-size:16px">🏡</span>
+        </div>
+        <div>
+          <p style="font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ok);margin-bottom:1px">Wereld 1</p>
+          <p style="font-size:16px;font-weight:700;color:var(--sv);font-family:var(--serif)">Het ensemble</p>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:14px">Vossenhol 16 is geen woning — het is een ensemble dat al een eeuwenlang verhaal heeft. Monument + boomgaard + gelijkgestemde buren: een plek die niet in het aanbod staat maar in het geheugen blijft.</p>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 14px;background:#fff;border:1px solid var(--bd2);border-radius:3px;border-left:3px solid var(--ok)">
+          <div><p style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px">Rieten kap gerestaureerd</p>
+            <p style="font-size:11.5px;color:var(--muted);line-height:1.55">Nieuwe rieten kap, ecologisch gerestaureerd — sleutelklaar, geen restauratiezorgen meer.</p></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 14px;background:#fff;border:1px solid var(--bd2);border-radius:3px;border-left:3px solid var(--ok)">
+          <div><p style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px">Boomgaard als setting</p>
+            <p style="font-size:11.5px;color:var(--muted);line-height:1.55">Fruitboomgaard omringt het ensemble — bloesem in april, oogst in september.</p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--mg);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <span style="font-size:16px">🌳</span>
+        </div>
+        <div>
+          <p style="font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mg);margin-bottom:1px">Wereld 2</p>
+          <p style="font-size:16px;font-weight:700;color:var(--sv);font-family:var(--serif)">De Betuwe</p>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:14px">Bemmel ligt in het hart van de Gelderse Betuwe — een regio van fruitteelt, dijken en lintdorpen. Rust, ruimte en een eigen tempo. Arnhem én Nijmegen zijn op ±20 minuten bereikbaar: de stad als keuze, niet als verplichting.</p>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 14px;background:#fff;border:1px solid var(--bd2);border-radius:3px;border-left:3px solid var(--mg)">
+          <div><p style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px">Arnhem &amp; Nijmegen ±20 min</p>
+            <p style="font-size:11.5px;color:var(--muted);line-height:1.55">Twee steden, twee culturen — allebei bereikbaar. De rust van de Betuwe, de stad als optie.</p></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 14px;background:#fff;border:1px solid var(--bd2);border-radius:3px;border-left:3px solid var(--mg)">
+          <div><p style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px">Gemeente Lingewaard</p>
+            <p style="font-size:11.5px;color:var(--muted);line-height:1.55">Dorpse sfeer, eigen voorzieningen — bakker, supermarkt, horeca op loopafstand in Bemmel-kern.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 14: STATUS & VALIDATIE -->
+<div class="slide" id="s14">
+  <div class="s-pad" style="padding-bottom:20px">
+    <span class="s-eye">status & validatie</span>
+    <h2 class="s-title">sterk project,<br>bewust in de markt.</h2>
+    <p class="s-sub">Eerste concept — gereed voor bespreking Habitat. De meeste onderdelen zijn groen; enkele aannames nog te bevestigen bij definitieve prijzen en technische details.</p>
+  </div>
+  <div style="padding:0 80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div>
+      <p style="font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ok);margin-bottom:12px">Validatiestatus</p>
+      <div class="st-row"><span class="st-ok">✅</span>Doelgroep-fit — sterk, helder profiel</div>
+      <div class="st-row"><span class="st-ok">✅</span>Product-fit — uitzonderlijk sterk, uniek in de Betuwe</div>
+      <div class="st-row"><span class="st-ok">✅</span>Locatie-fit — Betuwe-charme werkt voor doelgroep</div>
+      <div class="st-row"><span class="st-ok">✅</span>Concurrentie-fit — blauw oceaan, geen directe concurrentie</div>
+      <div class="st-row"><span class="st-ok">✅</span>Merkidentiteit — uitgewerkt in dit document</div>
+      <div class="st-row"><span class="st-ok">✅</span>Social proof — 3/7 verkocht, actief inzetten</div>
+      <div class="st-row"><span class="st-ok">✅</span>Marketing-fit — sterk visueel verhaal (riet, boomgaard)</div>
+      <div class="st-row"><span class="st-ok">✅</span>Sales-fit — duidelijk kernverhaal, sterk op bezichtiging</div>
+      <div class="st-row"><span class="st-warn">⚠️</span>Prijs-fit — definitieve prijzen nog te bevestigen</div>
+      <div class="st-row"><span class="st-warn">⚠️</span>Bewijs monument — foto's voor/na + status concreet maken</div>
+    </div>
+    <div>
+      <p style="font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ok);margin-bottom:12px">Openstaande punten</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div class="card" style="border-left:3px solid var(--ok)"><p class="c-body">Definitieve vraagprijzen en m² per unit (VH2, VH4, VH5, VH6)</p></div>
+        <div class="card" style="border-left:3px solid var(--ok)"><p class="c-body">Opleverdata per woning — VH2, VH4, VH5, VH6</p></div>
+        <div class="card" style="border-left:3px solid var(--ok)"><p class="c-body">Verhalen/profielen van al-verkochte kopers — krachtige social proof</p></div>
+        <div class="card" style="border-left:3px solid var(--muted)"><p class="c-body">Monumentenstatus: welke onderhoudsverplichtingen gelden er precies?</p></div>
+        <div class="card" style="border-left:3px solid var(--muted)"><p class="c-body">Seizoensfoto's boomgaard in bloesem (april) + oogst (september)</p></div>
+        <div class="card" style="border-left:3px solid var(--muted)"><p class="c-body">Restauratiedocumentatie voor/na beschikbaar voor brochure?</p></div>
+        <div class="card" style="border-left:3px solid var(--muted)"><p class="c-body">Energieprestatie VH5+6 (BENG-klasse) — aanname nu A++/A+++</p></div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:0 80px 40px">
+    <div class="dark-band"><p>"Campagnestrategie: diepgericht op de karakterzoeker — geen massacampagne. 4 woningen vragen 4 kopers. Bereik de juiste 100–300 mensen, niet 100.000. Sterkste campagnemoment: boomgaard in bloei (april/mei)."</p></div>
+  </div>
+</div>
+
+</main>
+</div>
+
+<script>
+var SLIDE_NAMES=["Cover","Ensemble","Units","Logo","Kleuren","Typografie","Doelgroep","Positionering","Kernwaarden","Copy & Storytelling","Social Media","USP’s & Sales","Richtlijnen","Locatie","Status"];
+var cur=0,tot=15;
+function goTo(n){
+  if(n<0||n>=tot)return;
+  document.getElementById('s'+cur).classList.remove('active');
+  cur=n;
+  document.getElementById('s'+cur).classList.add('active');
+  document.getElementById('main').scrollTop=0;
+  document.getElementById('ctr').textContent=(cur+1)+' / '+tot;
+  var sn=document.getElementById('sname');
+  if(sn)sn.textContent=SLIDE_NAMES[cur]||'';
+}
+function navigate(d){goTo(cur+d)}
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')navigate(1);
+  else if(e.key==='ArrowLeft'||e.key==='ArrowUp')navigate(-1);
+});
+</script>
